@@ -58,5 +58,8 @@ You can open index.html and see the result.
 
 https://cdn.rawgit.com/emmasuzuki/EspressoSpoonDemo/master/app/build/spoon/debug/index.html
 
+Also this page is dynamic so you can click on red bar to see details.
+
+
 ## Any Questions ? 
 Please feel free to contact me at emma11suzuki@gmail.com

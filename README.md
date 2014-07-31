@@ -14,6 +14,8 @@ More about Spoon: http://square.github.io/spoon/
 I took Espresso as my instrumentation tests.
 Espresso is light-weight instrumentation tests and FAST ! 
 
+More about Espresso: https://code.google.com/p/android-test-kit/wiki/Espresso
+
 ##Setup
 `build.gradle`
 

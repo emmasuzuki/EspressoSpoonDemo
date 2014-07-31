@@ -3,6 +3,10 @@ EspressoSpoonDemo
 
 This is a demo project to show how spoon works with espresso.
 
+<img src="https://raw.githubusercontent.com/emmasuzuki/EspressoSpoonDemo/master/demo1.png" width="500">
+
+<img src="https://raw.githubusercontent.com/emmasuzuki/EspressoSpoonDemo/master/demo2.png" width="500">
+
 ##Spoon
 Test runner and reporting tool which runs instrumentation tests.
 Spoon runs tests on all devices detected by adb.

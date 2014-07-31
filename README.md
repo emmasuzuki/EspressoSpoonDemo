@@ -49,6 +49,27 @@ More about Espresso: https://code.google.com/p/android-test-kit/wiki/Espresso
   }
   ```
 
+##Write test with Espresso
+  ```
+  public void testSetMismatchError() {
+    // Make screenshot before performance
+    Spoon.screenshot(getActivity(), "initial_state");
+  
+    // Setup
+    onView(withId(R.id.email)).perform(typeText("espresso@spoon.com\n"));
+    onView(withId(R.id.password)).perform(typeText("lemoncake\n"));
+  
+    // Action
+    onView(withId(R.id.submit)).perform(click());
+  
+    // Make screenshot after performance
+    Spoon.screenshot(getActivity(), "after_state");    
+  
+    // Test
+    onView(withText(R.string.msg_mismatch)).check(matches(isDisplayed()));
+  }
+  ```
+
 ##Run
 It's Simple ! Plug-in all devices you want to test or open GenyMotion emulators and execute
 

@@ -48,7 +48,7 @@ More about Espresso: https://code.google.com/p/android-test-kit/wiki/Espresso
   }
   ```
 
-5. Add spoon blick
+5. Add spoon block
   ```
   spoon {
     debug = true;

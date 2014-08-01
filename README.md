@@ -37,7 +37,9 @@ More about Espresso: https://code.google.com/p/android-test-kit/wiki/Espresso
   ```
 
 3. Add testInstrumentationRunner to defaultConfig
-  `testInstrumentationRunner "com.google.android.apps.common.testing.testrunner.GoogleInstrumentationTestRunner"`
+  ```
+  testInstrumentationRunner "com.google.android.apps.common.testing.testrunner.GoogleInstrumentationTestRunner"
+  ```
 
 4. Add these lines to fix duplicate files issue
   ```

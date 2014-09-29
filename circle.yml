@@ -8,11 +8,11 @@ dependencies:
 		- ~/android
 
 	pre:
-		- echo y | android update sdk --no-ui --filter "android-19, build-tools-20.0"
+		- echo y | android update sdk --no-ui --filter "android-20, build-tools-20.0"
 
 	override:
-		- ./QuickReturnListView9/gradlew dependencies
+		- ./gradlew dependencies
 
 test:
 	override:
-		- ./QuickReturnListView9/gradlew build
+		- ./gradlew spoon

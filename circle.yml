@@ -11,8 +11,8 @@ dependencies:
     - echo y | android update sdk --no-ui --filter "android-20, build-tools-20.0"
 
   override:
-    - ./gradle dependencies
+    - gradle dependencies
 
 test:
   override:
-    - ./gradle spoon
+    - gradle clean spoon

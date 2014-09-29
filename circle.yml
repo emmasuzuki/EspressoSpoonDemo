@@ -1,18 +1,18 @@
 machine:
-	environment:
-		ANDROID_HOME: /home/ubuntu/android
+  environment:
+    ANDROID_HOME: /home/ubuntu/android
 
 dependencies:
-	cache_directories:
-		- ~/.android
-		- ~/android
+  cache_directories:
+    - ~/.android
+    - ~/android
 
-	pre:
-		- echo y | android update sdk --no-ui --filter "android-20, build-tools-20.0"
+  pre:
+    - echo y | android update sdk --no-ui --filter "android-20, build-tools-20.0"
 
-	override:
-		- ./gradlew dependencies
+  override:
+    - ./gradlew dependencies
 
 test:
-	override:
-		- ./gradlew spoon
+  override:
+    - ./gradlew spoon

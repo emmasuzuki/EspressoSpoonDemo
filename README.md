@@ -79,7 +79,7 @@ More about Espresso: https://code.google.com/p/android-test-kit/wiki/Espresso
 ##Run
 It's Simple ! Plug-in all devices you want to test or open GenyMotion emulators and execute
 
-`$ gradle spoon`
+`$ ./gradlew spoon`
 
 
 After run, spoon generates spoon folder in app/build directory.

@@ -26,19 +26,19 @@ More about Espresso: https://code.google.com/p/android-test-kit/wiki/Espresso
 1. Add classpath to build script dependencies
   ```
   dependencies {
-    classpath 'com.stanfy.spoon:spoon-gradle-plugin:0.10.0'
+    classpath 'com.stanfy.spoon:spoon-gradle-plugin:0.14.1'
   }
   ```
   
 2. Add dependencies
   ```
-  androidTestCompile 'com.jakewharton.espresso:espresso:1.1-r3'
-  androidTestCompile 'com.squareup.spoon:spoon-client:1.1.0'
+  androidTestCompile 'com.android.support.test.espresso:espresso-core:2.0'
+  androidTestCompile 'com.squareup.spoon:spoon-client:1.1.1'
   ```
 
 3. Add testInstrumentationRunner to defaultConfig
   ```
-  testInstrumentationRunner "com.google.android.apps.common.testing.testrunner.GoogleInstrumentationTestRunner"
+  testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
   ```
 
 4. Add these lines to fix duplicate files issue
@@ -79,7 +79,7 @@ More about Espresso: https://code.google.com/p/android-test-kit/wiki/Espresso
 ##Run
 It's Simple ! Plug-in all devices you want to test or open GenyMotion emulators and execute
 
-`$ gradle spoon`
+`$ ./gradlew spoon`
 
 
 After run, spoon generates spoon folder in app/build directory.

@@ -10,6 +10,7 @@ buildscript {
 
 apply plugin: 'com.android.application'
 apply plugin: 'spoon'
+apply plugin: 'jacoco'
 
 dependencies {
     androidTestCompile 'com.android.support.test.espresso:espresso-core:2.0'
@@ -31,10 +32,18 @@ android {
     }
 
     buildTypes {
+        debug {
+            testCoverageEnabled true
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+
+    jacoco {
+        version "0.7.1.201405082137"
     }
 
     packagingOptions {
@@ -48,4 +57,32 @@ android {
 
 spoon {
     debug = true;
+}
+
+jacoco {
+    toolVersion "0.7.1.201405082137"
+}
+
+def coverageSourceDirs = [
+        './src/androidTest/java'
+]
+
+task jacocoTestReport(type: JacocoReport, dependsOn: "connectedAndroidTest") {
+    group = "Reporting"
+    description = "Generates Jacoco coverage reports"
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+    classDirectories = fileTree(
+            dir: 'build/intermediates/classes',
+            excludes: ['**/R.class',
+                       '**/R$*.class',
+                       '**/BuildConfig.*',
+                       '**/Manifest*.*'
+            ]
+    )
+    sourceDirectories = files(coverageSourceDirs)
+    additionalSourceDirs = files(coverageSourceDirs)
+    executionData = files('build/jacoco/connectedAndroidTest.exec')
 }

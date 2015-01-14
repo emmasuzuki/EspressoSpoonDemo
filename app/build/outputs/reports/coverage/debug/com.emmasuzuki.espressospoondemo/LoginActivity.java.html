@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>LoginActivity.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">debug</a> &gt; <a href="index.source.html" class="el_package">com.emmasuzuki.espressospoondemo</a> &gt; <span class="el_source">LoginActivity.java</span></div><h1>LoginActivity.java</h1><pre class="source lang-java linenums">package com.emmasuzuki.espressospoondemo;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+
+/**
+ * Demo Login activity class
+ */
+<span class="fc" id="L11">public class LoginActivity extends Activity {</span>
+
+    private static final String DEMO_EMAIL = &quot;espresso@spoon.com&quot;;
+    private static final String DEMO_PASSWORD = &quot;lemoncake&quot;;
+
+    private EditText mEmail, mPassword;
+    private View mError;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+<span class="fc" id="L21">        super.onCreate(savedInstanceState);</span>
+<span class="fc" id="L22">        setContentView(R.layout.login);</span>
+
+<span class="fc" id="L24">        mEmail = (EditText) findViewById(R.id.email);</span>
+<span class="fc" id="L25">        mPassword = (EditText) findViewById(R.id.password);</span>
+
+<span class="fc" id="L27">        View submitButton = findViewById(R.id.submit);</span>
+<span class="fc" id="L28">        submitButton.setOnClickListener(new View.OnClickListener() {</span>
+
+            @Override
+            public void onClick(View v) {
+<span class="fc" id="L32">                validateFields();</span>
+
+<span class="fc bfc" id="L34" title="All 4 branches covered.">                if (mEmail.getError() == null &amp;&amp; mPassword.getError() == null) {</span>
+<span class="fc" id="L35">                    validateAccount();</span>
+                }
+<span class="fc" id="L37">            }</span>
+        });
+<span class="fc" id="L39">    }</span>
+
+    private void validateFields() {
+<span class="fc bfc" id="L42" title="All 2 branches covered.">        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(mEmail.getText().toString()).matches()) {</span>
+<span class="fc" id="L43">            mEmail.setError(getString(R.string.msg_email_error));</span>
+        } else {
+<span class="fc" id="L45">            mEmail.setError(null);</span>
+        }
+
+<span class="fc bfc" id="L48" title="All 2 branches covered.">        if (mPassword.getText().toString().isEmpty()) {</span>
+<span class="fc" id="L49">            mPassword.setError(getString(R.string.msg_password_error));</span>
+        } else {
+<span class="fc" id="L51">            mPassword.setError(null);</span>
+        }
+<span class="fc" id="L53">    }</span>
+
+    private void validateAccount() {
+<span class="pc bpc" id="L56" title="2 of 4 branches missed.">        if (!mEmail.getText().toString().equals(DEMO_EMAIL) || !mPassword.getText().toString().equals(DEMO_PASSWORD)) {</span>
+<span class="pc bpc" id="L57" title="1 of 2 branches missed.">            if (mError == null) {</span>
+<span class="fc" id="L58">                mError = findViewById(R.id.error);</span>
+            }
+
+            // Purposefully commenting this line out to demonstrate test failure
+<span class="fc" id="L62">                mError.setVisibility(View.VISIBLE);</span>
+        } else {
+<span class="nc" id="L64">            mError.setVisibility(View.GONE);</span>
+        }
+<span class="fc" id="L66">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.1.201405082137</span></div></body></html>

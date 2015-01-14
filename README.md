@@ -21,7 +21,7 @@ Espresso is light-weight instrumentation tests and FAST !
 More about Espresso: https://code.google.com/p/android-test-kit/wiki/Espresso
 
 ##Setup
-`build.gradle`
+`app/build.gradle`
 
 1. Add classpath to build script dependencies
   ```
@@ -90,15 +90,76 @@ https://cdn.rawgit.com/emmasuzuki/EspressoSpoonDemo/master/app/build/spoon/debug
 Also this page is dynamic so you can click on red bar to see details.
 
 ##Jacoco
-Jacoco is a code coverage for Java.  
+Jacoco is a code coverage for Java.
 It includes following analysis:
 - Line coverage
 - Method coverage
 - Branch coverage
 - Block coverage
 
+Spoon and Jacoco are both reporting tools. Spoon is more like a dev friendly output to find what test is failing and why.  While Jacoco is coverage tool where it shows which lines are tested and which are not plus overall metrics of how much your code is tested.
+
 See in action:
 https://cdn.rawgit.com/emmasuzuki/EspressoSpoonDemo/master/app/build/outputs/reports/coverage/debug/index.html
+
+Setup:
+`app/build.gradle`
+
+1. Enable coverage
+
+    ```
+    buildTypes {
+      debug {
+          testCoverageEnabled true
+      }
+    }
+   ```
+   
+2. Add Jacoco in android block
+
+    ```
+    jacoco {
+      version "0.7.1.201405082137"
+    }
+    ```
+    
+3. Define source directory
+
+    ```
+    def coverageSourceDirs = [
+      './src/androidTest/java'
+    ]
+    ```
+    
+4. Add Jacoco task
+
+    ```
+    task jacocoTestReport(type: JacocoReport, dependsOn: "connectedAndroidTest") {
+      group = "Reporting"
+      description = "Generates Jacoco coverage reports"
+      reports {
+        xml.enabled = true
+        html.enabled = true
+      }
+      classDirectories = fileTree(
+        dir: 'build/intermediates/classes',
+        excludes: ['**/R.class',
+                   '**/R$*.class',
+                   '**/BuildConfig.*',
+                   '**/Manifest*.*'
+        ]
+      )
+      sourceDirectories = files(coverageSourceDirs)
+      additionalSourceDirs = files(coverageSourceDirs)
+      executionData = files('build/jacoco/connectedAndroidTest.exec')
+    }
+    ```
+
+Run
+
+`$./gradlew jacocoTestReport`
+
+After run the command, files are generated at `app/build/outputs/reports/coverage/`.  Open index.html and see your report.
 
 ##Any Questions ? 
 Please feel free to contact me at emma11suzuki@gmail.com

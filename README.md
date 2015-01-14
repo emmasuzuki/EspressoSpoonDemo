@@ -89,6 +89,16 @@ https://cdn.rawgit.com/emmasuzuki/EspressoSpoonDemo/master/app/build/spoon/debug
 
 Also this page is dynamic so you can click on red bar to see details.
 
+##Jacoco
+Jacoco is a code coverage for Java.  
+It includes following analysis:
+- Line coverage
+- Method coverage
+- Branch coverage
+- Block coverage
 
-## Any Questions ? 
+See in action:
+https://cdn.rawgit.com/emmasuzuki/EspressoSpoonDemo/master/app/build/outputs/reports/coverage/debug/index.html
+
+##Any Questions ? 
 Please feel free to contact me at emma11suzuki@gmail.com

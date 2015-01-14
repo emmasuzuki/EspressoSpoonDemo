@@ -58,8 +58,8 @@ public class LoginActivity extends Activity {
                 mError = findViewById(R.id.error);
             }
 
-            // Purposefully commeting this line out to demonstrate test failure
-            //    mError.setVisibility(View.VISIBLE);
+            // Purposefully commenting this line out to demonstrate test failure
+//            mError.setVisibility(View.VISIBLE);
         } else {
             mError.setVisibility(View.GONE);
         }

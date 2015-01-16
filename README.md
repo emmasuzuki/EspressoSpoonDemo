@@ -113,9 +113,13 @@ Setup:
           testCoverageEnabled true
       }
     }
-   ```
+    ```
    
-2. Add Jacoco in android block
+2. Apply Jacoco plugin
+  
+    `apply plugin: 'jacoco'`
+   
+3. Add Jacoco in android block
 
     ```
     jacoco {
@@ -123,7 +127,7 @@ Setup:
     }
     ```
     
-3. Define source directory
+4. Define source directory
 
     ```
     def coverageSourceDirs = [
@@ -131,7 +135,7 @@ Setup:
     ]
     ```
     
-4. Add Jacoco task
+5. Add Jacoco task
 
     ```
     task jacocoTestReport(type: JacocoReport, dependsOn: "connectedAndroidTest") {

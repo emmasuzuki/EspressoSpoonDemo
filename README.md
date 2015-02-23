@@ -125,43 +125,11 @@ Setup:
     jacoco {
       version "0.7.1.201405082137"
     }
-    ```
-    
-4. Define source directory
-
-    ```
-    def coverageSourceDirs = [
-      './src/androidTest/java'
-    ]
-    ```
-    
-5. Add Jacoco task
-
-    ```
-    task jacocoTestReport(type: JacocoReport, dependsOn: "connectedAndroidTest") {
-      group = "Reporting"
-      description = "Generates Jacoco coverage reports"
-      reports {
-        xml.enabled = true
-        html.enabled = true
-      }
-      classDirectories = fileTree(
-        dir: 'build/intermediates/classes',
-        excludes: ['**/R.class',
-                   '**/R$*.class',
-                   '**/BuildConfig.*',
-                   '**/Manifest*.*'
-        ]
-      )
-      sourceDirectories = files(coverageSourceDirs)
-      additionalSourceDirs = files(coverageSourceDirs)
-      executionData = files('build/jacoco/connectedAndroidTest.exec')
-    }
-    ```
+    ```    
 
 Run
 
-`$./gradlew jacocoTestReport`
+`$./gradlew createDebugCoverageReport`
 
 After run the command, files are generated at `app/build/outputs/reports/coverage/`.  Open index.html and see your report.
 

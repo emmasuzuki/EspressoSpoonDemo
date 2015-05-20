@@ -30,25 +30,30 @@ More about Espresso: https://code.google.com/p/android-test-kit/wiki/Espresso
   }
   ```
   
-2. Add dependencies
+2. Apply spoon plugin
+  ```
+  apply plugin: 'spoon'
+  ```
+
+3. Add dependencies
   ```
   androidTestCompile 'com.android.support.test.espresso:espresso-core:2.0'
   androidTestCompile 'com.squareup.spoon:spoon-client:1.1.1'
   ```
 
-3. Add testInstrumentationRunner to defaultConfig
+4. Add testInstrumentationRunner to defaultConfig
   ```
   testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
   ```
 
-4. Add these lines to fix duplicate files issue
+5. Add these lines to fix duplicate files issue
   ```
   packagingOptions {
     exclude 'LICENSE.txt'
   }
   ```
 
-5. Add spoon block
+6. Add spoon block
   ```
   spoon {
     debug = true;

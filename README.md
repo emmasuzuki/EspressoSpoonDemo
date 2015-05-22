@@ -119,19 +119,7 @@ Setup:
       }
     }
     ```
-   
-2. Apply Jacoco plugin
-  
-    `apply plugin: 'jacoco'`
-   
-3. Add Jacoco in android block
-
-    ```
-    jacoco {
-      version "0.7.1.201405082137"
-    }
-    ```    
-
+    
 Run
 
 `$./gradlew createDebugCoverageReport`

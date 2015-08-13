@@ -26,7 +26,7 @@ More about Espresso: https://code.google.com/p/android-test-kit/wiki/Espresso
 1. Add classpath to build script dependencies
   ```
   dependencies {
-    classpath 'com.stanfy.spoon:spoon-gradle-plugin:0.14.1'
+    classpath 'com.stanfy.spoon:spoon-gradle-plugin:1.0.2'
   }
   ```
   
@@ -37,8 +37,8 @@ More about Espresso: https://code.google.com/p/android-test-kit/wiki/Espresso
 
 3. Add dependencies
   ```
-  androidTestCompile 'com.android.support.test.espresso:espresso-core:2.0'
-  androidTestCompile 'com.squareup.spoon:spoon-client:1.1.1'
+  androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2'
+  androidTestCompile 'com.squareup.spoon:spoon-client:1.1.10'
   ```
 
 4. Add testInstrumentationRunner to defaultConfig

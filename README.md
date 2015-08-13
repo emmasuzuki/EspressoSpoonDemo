@@ -86,6 +86,7 @@ It's Simple ! Plug-in all devices you want to test or open GenyMotion emulators 
 
 `$ ./gradlew spoon`
 
+##### To allow spoon taking a screenshot, you need to add `WRITE_EXTERNAL_STORAGE` permission.
 
 After run, spoon generates spoon folder in app/build directory.
 You can open index.html and see the result.

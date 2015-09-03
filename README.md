@@ -61,7 +61,7 @@ More about Espresso: https://code.google.com/p/android-test-kit/wiki/Espresso
   ```
 
 ##Write test with Espresso
-  ```
+  ```java
   public void testSetMismatchError() {
     // Make screenshot before performance
     Spoon.screenshot(getActivity(), "initial_state");

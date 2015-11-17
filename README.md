@@ -37,8 +37,8 @@ More about Espresso: https://code.google.com/p/android-test-kit/wiki/Espresso
 
 3. Add dependencies
   ```
-  androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2'
-  androidTestCompile 'com.squareup.spoon:spoon-client:1.1.10'
+  androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.1'
+  androidTestCompile 'com.squareup.spoon:spoon-client:1.2.0'
   ```
 
 4. Add testInstrumentationRunner to defaultConfig

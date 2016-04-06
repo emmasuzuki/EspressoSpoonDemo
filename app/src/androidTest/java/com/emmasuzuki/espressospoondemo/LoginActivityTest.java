@@ -20,16 +20,10 @@
 package com.emmasuzuki.espressospoondemo;
 
 import android.support.test.rule.ActivityTestRule;
-import android.view.View;
-import android.widget.EditText;
 
 import com.squareup.spoon.Spoon;
 
-import org.hamcrest.Description;
-import org.hamcrest.Matcher;
-import org.hamcrest.TypeSafeMatcher;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;
 
@@ -37,6 +31,7 @@ import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
+import static android.support.test.espresso.matcher.ViewMatchers.hasErrorText;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
@@ -97,37 +92,5 @@ public class LoginActivityTest {
         Spoon.screenshot(mActivity, "after_login");
 
         onView(withText(R.string.msg_mismatch)).check(matches(isDisplayed()));
-    }
-
-    private static Matcher<? super View> hasErrorText(String expectedError) {
-        return new ErrorTextMatcher(expectedError);
-    }
-
-    /**
-     * Custom matcher to assert equal EditText.setError();
-     */
-    private static class ErrorTextMatcher extends TypeSafeMatcher<View> {
-
-        private final String mExpectedError;
-
-        private ErrorTextMatcher(String expectedError) {
-            mExpectedError = expectedError;
-        }
-
-        @Override
-        public boolean matchesSafely(View view) {
-            if(!(view instanceof EditText)) {
-                return false;
-            }
-
-            EditText editText = (EditText) view;
-
-            return mExpectedError.equals(editText.getError());
-        }
-
-        @Override
-        public void describeTo(Description description) {
-            description.appendText("with error: " + mExpectedError);
-        }
     }
 }

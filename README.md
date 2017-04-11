@@ -7,20 +7,20 @@ This is a demo project to show how spoon works with espresso.
 
 <img src="https://raw.githubusercontent.com/emmasuzuki/EspressoSpoonDemo/master/demo2.png" width="500">
 
-##Spoon
+## Spoon
 Test runner and reporting tool which runs instrumentation tests.
 Spoon runs tests on all devices detected by adb.
 After the tests complete, spoon generates easy, meaningful summary in HTML.
 
 More about Spoon: http://square.github.io/spoon/
 
-##Espresso
+## Espresso
 I took Espresso as my instrumentation tests.
 Espresso is light-weight instrumentation tests and FAST ! 
 
 More about Espresso: https://code.google.com/p/android-test-kit/wiki/Espresso
 
-##Setup
+## Setup
 `app/build.gradle`
 
 1. Add classpath to build script dependencies
@@ -60,7 +60,7 @@ More about Espresso: https://code.google.com/p/android-test-kit/wiki/Espresso
   }
   ```
 
-##Write test with Espresso
+## Write test with Espresso
   ```java
   public void testSetMismatchError() {
     // Make screenshot before performance
@@ -81,7 +81,7 @@ More about Espresso: https://code.google.com/p/android-test-kit/wiki/Espresso
   }
   ```
 
-##Run
+## Run
 It's Simple ! Plug-in all devices you want to test or open GenyMotion emulators and execute
 
 `$ ./gradlew spoon`
@@ -95,7 +95,7 @@ https://cdn.rawgit.com/emmasuzuki/EspressoSpoonDemo/master/app/build/spoon/debug
 
 Also this page is dynamic so you can click on red bar to see details.
 
-##Jacoco
+## Jacoco
 Jacoco is a code coverage for Java.
 It includes following analysis:
 - Line coverage
@@ -127,5 +127,5 @@ Run
 
 After run the command, files are generated at `app/build/outputs/reports/coverage/`.  Open index.html and see your report.
 
-##Any Questions ? 
+## Any Questions ? 
 Please feel free to contact me at emma11suzuki@gmail.com

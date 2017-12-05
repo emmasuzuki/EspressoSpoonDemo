@@ -29,6 +29,7 @@ import org.junit.Test;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
+import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.hasErrorText;
@@ -52,12 +53,8 @@ public class LoginActivityTest {
     public void testSetEmailInvalidError() {
         Spoon.screenshot(mActivity, "initial_state");
 
-        // When view is hidden by keyboard perform("action") fails to do action.
-
-        // Ideally Espresso.closeSoftKeyboard() after eash perform is called automatically but
-        // has a bug and sometimes does not close keyboard. "\n" for every typeText is a workaround
-        onView(withId(R.id.email)).perform(typeText("test\n"));
-        onView(withId(R.id.password)).perform(typeText("lemoncake\n"));
+        onView(withId(R.id.email)).perform(typeText("test"));
+        onView(withId(R.id.password)).perform(typeText("lemoncake"), closeSoftKeyboard());
 
         onView(withId(R.id.submit)).perform(click());
 
@@ -70,8 +67,8 @@ public class LoginActivityTest {
     public void testSetPasswordInvalidError() {
         Spoon.screenshot(mActivity, "initial_state");
 
-        onView(withId(R.id.email)).perform(typeText("test@test.com\n"));
-        onView(withId(R.id.password)).perform(typeText("\n"));
+        onView(withId(R.id.email)).perform(typeText("test@test.com"));
+        onView(withId(R.id.password)).perform(typeText(""), closeSoftKeyboard());
 
         onView(withId(R.id.submit)).perform(click());
 
@@ -84,8 +81,8 @@ public class LoginActivityTest {
     public void testSetMismatchError() {
         Spoon.screenshot(mActivity, "initial_state");
 
-        onView(withId(R.id.email)).perform(typeText("espresso@spoon.com\n"));
-        onView(withId(R.id.password)).perform(typeText("bananacake\n\n"));
+        onView(withId(R.id.email)).perform(typeText("espresso@spoon.com"));
+        onView(withId(R.id.password)).perform(typeText("bananacake"), closeSoftKeyboard());
 
         onView(withId(R.id.submit)).perform(click());
 

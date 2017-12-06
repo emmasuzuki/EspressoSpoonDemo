@@ -26,7 +26,7 @@ More about Espresso: https://code.google.com/p/android-test-kit/wiki/Espresso
 1. Add classpath to build script dependencies
   ```
   dependencies {
-    classpath 'com.stanfy.spoon:spoon-gradle-plugin:1.0.2'
+    classpath 'com.stanfy.spoon:spoon-gradle-plugin:1.2.2'
   }
   ```
   
@@ -37,8 +37,8 @@ More about Espresso: https://code.google.com/p/android-test-kit/wiki/Espresso
 
 3. Add dependencies
   ```
-  androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.1'
-  androidTestCompile 'com.squareup.spoon:spoon-client:1.2.0'
+  androidTestCompile 'com.android.support.test.espresso:espresso-core:3.0.1'
+  androidTestCompile 'com.squareup.spoon:spoon-client:1.7.1'
   ```
 
 4. Add testInstrumentationRunner to defaultConfig
@@ -56,7 +56,7 @@ More about Espresso: https://code.google.com/p/android-test-kit/wiki/Espresso
 6. Add spoon block
   ```
   spoon {
-    debug = true;
+    debug = true
   }
   ```
 
@@ -106,7 +106,7 @@ It includes following analysis:
 Spoon and Jacoco are both reporting tools. Spoon is more like a dev friendly output to find what test is failing and why.  While Jacoco is coverage tool where it shows which lines are tested and which are not plus overall metrics of how much your code is tested.
 
 See in action:
-https://cdn.rawgit.com/emmasuzuki/EspressoSpoonDemo/master/app/build/outputs/reports/coverage/debug/index.html
+https://cdn.rawgit.com/emmasuzuki/EspressoSpoonDemo/master/app/build/reports/coverage/debug/index.html
 
 Setup:
 `app/build.gradle`
@@ -114,10 +114,24 @@ Setup:
 1. Enable coverage
 
     ```
-    buildTypes {
-      debug {
-          testCoverageEnabled true
+    buildScript {
+      ...
+      dependencies {
+        classpath 'org.jacoco:org.jacoco.core:0.7.5.201505241946'
       }
+    }
+    
+    ...
+    apply plugin: 'jacoco'
+    ...
+
+    android {
+      buildTypes {
+        debug {
+          testCoverageEnabled true
+        }
+      }
+      ...
     }
     ```
     
@@ -125,7 +139,7 @@ Run
 
 `$./gradlew createDebugCoverageReport`
 
-After run the command, files are generated at `app/build/outputs/reports/coverage/`.  Open index.html and see your report.
+After run the command, files are generated at `app/build/reports/coverage/`.  Open index.html and see your report.
 
 ## Any Questions ? 
 Please feel free to contact me at emma11suzuki@gmail.com

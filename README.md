@@ -140,6 +140,3 @@ Run
 `$./gradlew createDebugCoverageReport`
 
 After run the command, files are generated at `app/build/reports/coverage/`.  Open index.html and see your report.
-
-## Any Questions ? 
-Please feel free to contact me at emma11suzuki@gmail.com

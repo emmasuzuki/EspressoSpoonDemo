@@ -140,3 +140,5 @@ Run
 `$./gradlew createDebugCoverageReport`
 
 After run the command, files are generated at `app/build/reports/coverage/`.  Open index.html and see your report.
+
+Jacoco won't generate report when tests are failing. To obtain the jacoco report, make all tests pass first then run the command above. 

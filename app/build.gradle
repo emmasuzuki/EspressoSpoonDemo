@@ -1,35 +1,39 @@
 buildscript {
     repositories {
+        google()
         mavenCentral()
+        jcenter()
+        maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+        maven { url 'https://oss.jfrog.org/artifactory/oss-snapshot-local/' }
     }
 
     dependencies {
-        classpath 'com.stanfy.spoon:spoon-gradle-plugin:1.2.2'
-        classpath 'org.jacoco:org.jacoco.core:0.7.5.201505241946'
+        classpath 'com.jaredsburrows:gradle-spoon-plugin:1.5.1'
     }
 }
 
 apply plugin: 'com.android.application'
-apply plugin: 'spoon'
-apply plugin: 'jacoco'
+apply plugin: 'com.jaredsburrows.spoon'
 
 dependencies {
-    androidTestCompile 'com.android.support.test.espresso:espresso-core:3.0.1'
-    androidTestCompile 'com.squareup.spoon:spoon-client:1.7.1'
+    androidTestImplementation 'androidx.test:runner:1.4.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    androidTestImplementation 'androidx.test:rules:1.1.2-alpha01'
+    androidTestImplementation 'com.squareup.spoon:spoon-client:1.7.1'
 }
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.2"
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.emmasuzuki.espressospoon"
         minSdkVersion 16
-        targetSdkVersion 26
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -46,13 +50,11 @@ android {
     packagingOptions {
         exclude 'LICENSE.txt'
     }
-
-    lintOptions {
-        abortOnError false
-    }
 }
 
 spoon {
     debug = true
+    baseOutputDir = file("$buildDir/custom-report-dir")
     adbTimeout = 30
+    grantAllPermissions = true
 }

@@ -20,6 +20,7 @@
 package com.emmasuzuki.espressospoondemo;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -80,7 +81,8 @@ public class LoginActivity extends Activity {
             // comment this line out to demonstrate test failure
             mError.setVisibility(View.VISIBLE);
         } else {
-            mError.setVisibility(View.GONE);
+            Intent switchActivityIntent = new Intent(this, HomeActivity.class);
+            startActivity(switchActivityIntent);
         }
     }
 }

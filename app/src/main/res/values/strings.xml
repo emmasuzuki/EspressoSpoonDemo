@@ -11,5 +11,7 @@
     <string name="msg_email_error">Please enter your email</string>
     <string name="msg_password_error">Please enter your password</string>
     <string name="msg_mismatch">Your email or password is wrong</string>
+    <string name="welcome_msg">Welcome! Everyone!</string>
+    <string name="wrong_welcome_msg">Not Welcome!</string>
 
 </resources>

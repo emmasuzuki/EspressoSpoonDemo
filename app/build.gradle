@@ -10,6 +10,9 @@ buildscript {
 
 apply plugin: 'com.android.application'
 
+dependencies {
+    androidTestImplementation 'junit:junit:4.12'
+}
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"

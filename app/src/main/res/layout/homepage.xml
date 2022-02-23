@@ -10,5 +10,5 @@
         android:layout_height="162dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@string/wrong_welcome_msg" />
+        android:text="@string/welcome_msg" />
 </LinearLayout>

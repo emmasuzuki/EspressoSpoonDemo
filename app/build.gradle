@@ -6,21 +6,9 @@ buildscript {
         maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
         maven { url 'https://oss.jfrog.org/artifactory/oss-snapshot-local/' }
     }
-
-    dependencies {
-        classpath 'com.jaredsburrows:gradle-spoon-plugin:1.5.1'
-    }
 }
 
 apply plugin: 'com.android.application'
-apply plugin: 'com.jaredsburrows.spoon'
-
-dependencies {
-    androidTestImplementation 'androidx.test:runner:1.4.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-    androidTestImplementation 'androidx.test:rules:1.1.2-alpha01'
-    androidTestImplementation 'com.squareup.spoon:spoon-client:1.7.1'
-}
 
 android {
     compileSdkVersion 30
@@ -32,8 +20,6 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -50,11 +36,4 @@ android {
     packagingOptions {
         exclude 'LICENSE.txt'
     }
-}
-
-spoon {
-    debug = true
-    baseOutputDir = file("$buildDir/custom-report-dir")
-    adbTimeout = 30
-    grantAllPermissions = true
 }

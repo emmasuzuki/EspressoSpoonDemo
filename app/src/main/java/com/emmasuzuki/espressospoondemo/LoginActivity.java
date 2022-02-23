@@ -29,8 +29,8 @@ import android.widget.EditText;
  */
 public class LoginActivity extends Activity {
 
-    private static final String DEMO_EMAIL = "espresso@spoon.com";
-    private static final String DEMO_PASSWORD = "lemoncake";
+    private static final String DEMO_EMAIL = "phonepe@test.com";
+    private static final String DEMO_PASSWORD = "phonepe";
 
     private EditText mEmail, mPassword;
     private View mError;
@@ -77,8 +77,8 @@ public class LoginActivity extends Activity {
                 mError = findViewById(R.id.error);
             }
 
-            // Purposefully commenting this line out to demonstrate test failure
-//            mError.setVisibility(View.VISIBLE);
+            // comment this line out to demonstrate test failure
+            mError.setVisibility(View.VISIBLE);
         } else {
             mError.setVisibility(View.GONE);
         }

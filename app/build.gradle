@@ -11,6 +11,7 @@ buildscript {
 apply plugin: 'com.android.application'
 
 dependencies {
+    androidTestImplementation 'androidx.test:runner:1.4.0'
     androidTestImplementation 'junit:junit:4.12'
 }
 android {

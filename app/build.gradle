@@ -11,6 +11,9 @@ buildscript {
 apply plugin: 'com.android.application'
 
 dependencies {
+    androidTestImplementation 'androidx.test:runner:1.4.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    androidTestImplementation 'androidx.test:rules:1.1.2-alpha01'
     androidTestImplementation 'junit:junit:4.12'
 }
 android {
@@ -23,6 +26,8 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {

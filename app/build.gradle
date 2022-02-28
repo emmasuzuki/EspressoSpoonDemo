@@ -59,5 +59,6 @@ spoon {
     baseOutputDir = file("$buildDir/custom-report-dir")
     adbTimeout = 30
     grantAllPermissions = true
+    shard = true
 }
 

@@ -52,7 +52,6 @@ public class LoginActivityTest {
 
     @Before
     public void launch() {
-//        mActivity = loginActivityActivityTestRule.launchActivity(new Intent());
         mActivity = loginActivityActivityTestRule.getActivity();
     }
 

@@ -61,7 +61,7 @@ public class LoginActivityTest {
         onView(withId(R.id.email)).perform(typeText("test"));
         onView(withId(R.id.password)).perform(typeText("phonepe"), closeSoftKeyboard());
 
-        onView(allOf(withId(R.id.submit), withChild(withText("Test me")))).perform(click());
+        onView(allOf(withId(R.id.submit))).perform(click());
 
         onView(withId(R.id.email)).check(matches(hasErrorText("Please enter your email")));
     }

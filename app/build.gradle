@@ -16,13 +16,18 @@ buildscript {
 apply plugin: 'com.android.application'
 apply plugin: 'com.jaredsburrows.spoon'
 
+repositories {
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+}
+
 
 dependencies {
-    androidTestImplementation 'androidx.test:runner:1.4.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    androidTestImplementation 'androidx.test:runner:1.1.2-alpha01'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
     androidTestImplementation 'androidx.test:rules:1.1.2-alpha01'
-    androidTestImplementation 'com.squareup.spoon:spoon-client:1.7.1'
+    androidTestImplementation 'com.squareup.spoon:spoon-client:2.0.0-SNAPSHOT'
     androidTestImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.2.0'
 }
 android {
     compileSdkVersion 30
@@ -30,7 +35,7 @@ android {
 
     defaultConfig {
         applicationId "com.emmasuzuki.espressospoon"
-        minSdkVersion 16
+        minSdkVersion 18
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -60,5 +65,14 @@ spoon {
     adbTimeout = 30
     grantAllPermissions = true
     shard = true
+    if (project.hasProperty("TestGroup")) {
+        instrumentationArgs = ["annotation=com.emmasuzuki.espressospoondemo.utils.annotations." + TestGroup]
+    }
+
+    if (project.hasProperty("Devices")) {
+        devices = Devices.split(",")
+    }
+
+
 }
 

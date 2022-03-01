@@ -1,4 +1,4 @@
-package com.emmasuzuki.espressospoondemo.annotations;
+package com.emmasuzuki.espressospoondemo.utils.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

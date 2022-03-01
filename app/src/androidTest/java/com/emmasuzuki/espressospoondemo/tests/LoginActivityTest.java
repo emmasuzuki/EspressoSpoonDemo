@@ -3,6 +3,7 @@ package com.emmasuzuki.espressospoondemo.tests;
 import org.junit.Test;;
 import com.emmasuzuki.espressospoondemo.pages.BasePage;
 import com.emmasuzuki.espressospoondemo.pages.LoginPage;
+import com.emmasuzuki.espressospoondemo.utils.annotations.Failure;
 import com.emmasuzuki.espressospoondemo.utils.annotations.Workshop;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.hasErrorText;
@@ -52,6 +53,7 @@ public class LoginActivityTest extends BaseTest {
 
     }
 
+    @Failure
     @Test
     public void test_Set_Correct_Cred_failure() {
         loginPage = new LoginPage();

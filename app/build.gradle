@@ -65,12 +65,17 @@ spoon {
     adbTimeout = 30
     grantAllPermissions = true
     shard = true
+
     if (project.hasProperty("TestGroup")) {
-        instrumentationArgs = ["annotation=com.emmasuzuki.espressospoondemo.utils.annotations." + TestGroup]
+        if (project.TestGroup == "Sanity") {
+            instrumentationArgs = ["notAnnotation=com.emmasuzuki.espressospoondemo.utils.annotations.Failure"]
+        } else {
+            instrumentationArgs = ["annotation=com.emmasuzuki.espressospoondemo.utils.annotations." + project.TestGroup]
+        }
     }
 
     if (project.hasProperty("Devices")) {
-        devices = Devices.split(",")
+        devices = project.Devices.split(",")
     }
 
 

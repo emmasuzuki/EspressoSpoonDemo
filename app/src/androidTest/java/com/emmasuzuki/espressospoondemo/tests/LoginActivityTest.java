@@ -1,10 +1,19 @@
 package com.emmasuzuki.espressospoondemo.tests;
 
+import android.content.Intent;
+
 import org.junit.Test;;
 import com.emmasuzuki.espressospoondemo.pages.BasePage;
+import com.emmasuzuki.espressospoondemo.pages.HomePage;
 import com.emmasuzuki.espressospoondemo.pages.LoginPage;
 import com.emmasuzuki.espressospoondemo.utils.annotations.Failure;
 import com.emmasuzuki.espressospoondemo.utils.annotations.Workshop;
+
+import net.lightbody.bmp.core.har.Har;
+
+import java.io.File;
+import java.io.IOException;
+
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.hasErrorText;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
@@ -15,13 +24,17 @@ import static org.hamcrest.Matchers.allOf;
 public class LoginActivityTest extends BaseTest {
 
     LoginPage loginPage;
+    HomePage homePage;
 
-    @Test
-    public void test_Invalid_Email_Error() {
+    @Workshop
+//    @Test
+    public void test_Invalid_Email_Error() throws IOException, InterruptedException {
+
         loginPage = new LoginPage();
-        loginPage.login("test", "phonepe")
+        loginPage.login("phonepe", "phonepe")
                 .getEmailField()
-                    .check(matches(hasErrorText("Please enter your email")));
+                .check(matches(hasErrorText("Please enter your email")));
+
     }
 
     @Test
@@ -44,23 +57,23 @@ public class LoginActivityTest extends BaseTest {
 
     @Workshop
     @Test
-    public void test_Set_Correct_Cred() {
+    public void test_Set_Correct_Cred() throws InterruptedException {
         loginPage = new LoginPage();
         loginPage.successfulLogin("phonepe@test.com", "phonepe")
                 .getWelcomeMsg()
                 .check(matches(allOf(isDisplayed()
                         , withText("Welcome! Everyone!"))));
 
+        Thread.sleep(10000);
     }
 
-    @Failure
-    @Test
-    public void test_Set_Correct_Cred_failure() {
-        loginPage = new LoginPage();
-        loginPage.successfulLogin("phonepe@test.com", "phonepe1")
-                .getWelcomeMsg()
-                .check(matches(allOf(isDisplayed()
-                        , withText("Welcome! Everyone!"))));
-    }
-
+//    @Failure
+//    @Test
+//    public void test_Set_Correct_Cred_failure() {
+//        loginPage = new LoginPage();
+//        loginPage.successfulLogin("phonepe@test.com", "phonepe1")
+//                .getWelcomeMsg()
+//                .check(matches(allOf(isDisplayed()
+//                        , withText("Welcome! Everyone!"))));
+//    }
 }
